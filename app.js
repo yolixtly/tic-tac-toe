@@ -1,132 +1,47 @@
-$(document).ready(function() {
-/*
+function NewGame() {
+    this.board = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
+}
 
-var board = [
-	[1, 0, null],
-	[null, 0, null],
-	[1, 0, null]
+//Check Winner 
+NewGame.prototype.checkWinner = function() {
+    //here is where we compare the userChices 
+}
+
+function SolutionMaker(name) {
+    //we are going to push the solutions of myGame to an array
+    this.name = name;
+    this.solution = {};
+}
+
+function AddSolution(solName, val1, val2, val3){
+    this.possibleSolution = solName;
+    var arraySolution = [];
+    for(var i = 0; i < 3; i++) {
+        arraySolution.push(val1);
+    }
+    return arraySolution;
+}
+
+var myGame = new NewGame();
+
+var val = myGame.board = [
+    [0, 1, 2],
+    [1, 1, 0],
+    [2, 1, 0]
 ];
 
+console.log(val);
 
-	//Steps 
-
-	// On click we append X or O 
-	// clicks alternate between X and next time is O
-		// dbclick click 
-		// keyCode x = 88 o = 79
-
-	// if (square = 'blank') {
-		//then allow click event handler
-	//} else { do not alow a click // send a alert( this is square is not empty)}
-
-	//a variable that show whos turn it is
-
-	//funciton switches player (X or O)
-
-	// also append instructions at all time 
-
-	//when does the computer know when a player wins 
-		function Winner() {
-			if()
-		}
-	// a constructor that creates WIN states 
-
-	//everytime the state of the board changes we call a function that cecks if the current bord state matches a
-	win state 
-
-
-			A 			B 			C
-		1 	A1			B1			C1
-
-		2	A2			B2			C2
-
-		3	A3			B3			C3	
-
-	//Define Wining states :
-
-	 	horizontal cases : 
-	 		[A1, B1, C1]  
-	 		[A2, B2, C2] 
-	 		[A3, B3, C3] 
-
-	 	vertical cases :
-
-	 		[A1, A2, A3] 
-	 		[B1, B2, B3]
-	 		[C1, C2, C3] 
-
-	 	diagonal cases : 
-
-	 		[A1, B2, C3]
-	 		[A3, B2, C1]
-*/
-
-	// On click we append X or O 
-	// clicks alternate between X and next time is O
-		// dbclick click 
-		// keyCode x = 88 o = 79
-
-	// 2 things to consider : 
-
-		// only being avail to fill black squares 
-
-		// alternating appending X or O on click 
-
-	///Whose turn it is?
-		//X's turn
-			//wherever he clicks it will turn to X
-				//can he click anywhere? (including opponent's squares)
-				//canc he only click on blank squares 
-					// property black to true or false
-					// $(square).css('black/clickable', 'false')
-					//square - > click square -> square gains "X" class; "X" class has a property where it cannot be clicked
-/* turn ON a class 
-.x-class {
-	content: "x";
-	property?:unclickable?;
-}
-
-div.x-class).text()x
-
-function Player(name, score, color, symbol) {
-	this.name = name;
-	this.score = score;
-	this.color = color;
-	this.symbol = symbol;
-}
-
-player.prototype.clickable = function(){
-
-	
-}
-
-var playerX = new Player();
-
-var playerO = new Player();
-
-playerX.clickable();
-
-playerO.clickable();
-
-
-*/
-
-var turnCounter = 1;
-var currentPlayer = 'X';
-
-	$('.main').on('click', '.square', function(){
-		if(turnCounter % 2 === 0){
-			currentPlayer = 'O';
-			// playerX.turn();
-		} else {
-			currentPlayer = 'X';
-		}
-		$(this).text(currentPlayer);
-
-		turnCounter++;
-	});
-
-
-
-
-});
+var horz1 = new AddSolution('horz1', myGame.board[0][0], myGame.board[0][1], myGame.board[0][2]);
+var horz2 = new AddSolution('horz2', val[1][0], val[1][1], val[1][2]);
+var horz3 = new AddSolution('horz3', val[2][0], val[2][1], val[2][2]);
+var vert1 = new AddSolution('vert1', val[0][0], val[1][0], val[2][0]);
+var vert2 = new AddSolution('vert2', val[0][1], val[1][1], val[2][1]);
+var vert3 = new AddSolution('vert3', val[0][2], val[1][2], val[2][2]);
+var diag1 = new AddSolution('diag1', val[0][0], val[1][1], val[2][2]);
+var diag2 = new AddSolution('diag2', val[0][2], val[1][1], val[2][0]);
+// console.log(horz1);
